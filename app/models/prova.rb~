@@ -1,0 +1,7 @@
+class Prova < ActiveRecord::Base
+  belongs_to :aluno
+  validates_uniqueness_of :descricao, :scope => :aluno_id, :message => ": Nota já lançada para esse aluno"
+  validates_numericality_of :valor
+  validates_inclusion_of :valor, :in=>0..10, :message => "da nota deve ser de 0 a 10"
+  attr_accessible :prova_id, :descricao, :valor, :aluno_id
+end

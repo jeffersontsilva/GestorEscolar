@@ -1,0 +1,37 @@
+<%= form_for ([@aluno, @prova]), :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @prova.errors.any? %>
+    <div id="error_explanation">
+      <h2>Ocorreu <%= pluralize(@prova.errors.count, "erro") %> ao salvar os dados:</h2>
+
+      <ul>
+      <% @prova.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label 'Matricula', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :aluno_id, :class => 'text_field', :disabled => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Avaliação', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :descricao, ["", "Prova 1", "Prova 2", "Prova 3", "Prova 4"], :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Nota', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :valor, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("Voltar")),
+                aluno_provas_path(@aluno), :class => 'btn' %>
+  </div>
+<% end %>

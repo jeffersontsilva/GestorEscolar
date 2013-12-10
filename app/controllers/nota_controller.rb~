@@ -1,0 +1,107 @@
+class NotaController < ApplicationController
+
+  before_filter :get_aluno
+
+  def get_aluno
+    @aluno = Aluno.find(params[:aluno_id])
+  end  
+  
+
+  # GET /nota
+  # GET /nota.json
+  def index
+    @nota = @aluno_notum.find(params[:aluno_id])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @notum}
+    end
+  end
+
+  # GET /nota/1
+  # GET /nota/1.json
+  def show
+    @notum = @aluno.nota.find(params[:id])
+
+      if params[:id]
+        @aluno = Nota.where(:id => params[:id]).first
+        @notum = @aluno.nota_url
+      else
+        @notum = Notum.all
+      end
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @notum}
+    end
+  end
+
+  # GET /nota/new
+  def new
+    @nota = @aluno
+      
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @notum}
+      end
+  end
+
+  # GET /nota/1/edit
+  def edit
+    @notum = @aluno.nota.find(params[:aluno_id])
+  end
+
+  # POST /nota
+  # POST /nota.json
+  def create
+    @notum = @aluno.notum.new(params[:nota])
+
+    respond_to do |format|
+      if @notum.save
+        format.html { redirect_to :action => :show, :id => @aluno.id, notice: 'Notum was successfully created.' }
+        format.json { render json: [@aluno, @notum], status: :created, location: [@aluno, @notum] }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @notum.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /nota/1
+  # PATCH/PUT /nota/1.json
+  def update
+    @notum = Nota.find(params[:id])
+
+    respond_to do |format|
+      if @notum.update_attributes(params[:nota])
+        format.html { redirect_to @notum, notice: 'Notum was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @notum.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /nota/1
+  # DELETE /nota/1.json
+  def destroy
+    @notum = Nota.find(params[:id])
+    @notum.destroy
+    respond_to do |format|
+      format.html { redirect_to notum_url }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_notum
+      @notum = Notum.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def notum_params
+      params.require(:nota).permit(:aluno_id, :descricao, :valor)
+    end
+end

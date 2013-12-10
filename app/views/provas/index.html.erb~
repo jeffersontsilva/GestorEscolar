@@ -1,0 +1,36 @@
+<%- model_class = Prova -%>
+<div class="page-header">
+  <h1><%=t 'Avaliações' %></h1>
+</div>
+<h4>Aluno: <%= @aluno.nome %></h4>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name('Avaliações') %></th>
+      <th><%= model_class.human_attribute_name('Notas') %></th>
+      <th><%=t '.actions', :default => t('Ação') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @provas.each do |prova| %>
+      <tr>
+        <td><%= prova.descricao %></td>
+        <td><%= prova.valor %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("Editar")),
+                      edit_aluno_prova_path(@aluno,prova), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <h4>Média: <%= @media %></h4>
+  <br>
+  <h4>Status: <%= @status %></h4>
+  <br>
+<div class="form-actions">
+<%= link_to t('.back', :default => t("Voltar")),
+              alunos_path, :class => 'btn'  %>
+</div>

@@ -1,0 +1,30 @@
+<%= form_for (@aula), :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @aula.errors.any? %>
+    <div id="error_explanation">
+      <h2>Ocorreu <%= pluralize(@aula.errors.count, "erro") %> ao gravar as informações: </h2>
+      <ul>
+      <% @aula.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :professor_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select (:professor_id), Professor.order(:nome), :id, :nome, {include_blank: true} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :turma_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select (:turma_id), Turma.order(:nome), :id, :nome, {include_blank: true} %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("Voltar")),
+                aulas_path, :class => 'btn' %>
+  </div>
+<% end %>

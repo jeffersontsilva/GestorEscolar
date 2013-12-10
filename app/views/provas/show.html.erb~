@@ -1,0 +1,19 @@
+<%- model_class = Prova -%>
+<div class="page-header">
+  <h3><%=t 'Avaliação' %></h3>
+</div>
+<strong id="notice"><%= notice %></strong>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:aluno_id) %>:</strong></dt>
+  <dd><%= @prova.aluno_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
+  <dd><%= @prova.descricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
+  <dd><%= @prova.valor %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("Voltar")),
+              aluno_provas_path, :class => 'btn'  %>
+  
+</div>

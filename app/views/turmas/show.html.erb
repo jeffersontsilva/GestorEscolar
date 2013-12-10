@@ -1,0 +1,14 @@
+<%- model_class = Turma -%>
+<div class="page-header">
+  <h3><%= 'Exibir Turma' %></h3>
+</div>
+<strong id="notice"><%= notice %></strong>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @turma.nome %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("Voltar")),
+              turmas_path, :class => 'btn'  %>
+</div>

@@ -1,0 +1,39 @@
+<%- model_class = Aluno -%>
+  <h3>Cadastro do Aluno</h3>
+</div>
+<strong id="notice"><%= notice %></strong>
+<dl class="dl-horizontal">
+  <dt><strong><%= 'Matricula' %>:</strong></dt>
+  <dd><%= @aluno.id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @aluno.nome %></dd>
+  <dt><strong><%= 'Data de Nascimento' %>:</strong></dt>
+  <dd><%= @aluno.dtnascimento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sexo) %>:</strong></dt>
+  <dd><%= @aluno.sexo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
+  <dd><%= @aluno.cpf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rg) %>:</strong></dt>
+  <dd><%= @aluno.rg %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:endereco) %>:</strong></dt>
+  <dd><%= @aluno.endereco %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:complemento) %>:</strong></dt>
+  <dd><%= @aluno.complemento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bairro) %>:</strong></dt>
+  <dd><%= @aluno.bairro %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cidade) %>:</strong></dt>
+  <dd><%= @aluno.cidade %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado) %>:</strong></dt>
+  <dd><%= @aluno.estado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefone) %>:</strong></dt>
+  <dd><%= @aluno.telefone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @aluno.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:turma_id) %>:</strong></dt>
+  <dd><%= @aluno.turma.nome %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t('Voltar')),
+              alunos_path, :class => 'btn'  %>
+</div>

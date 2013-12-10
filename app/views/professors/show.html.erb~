@@ -1,0 +1,35 @@
+<%- model_class = Professor -%>
+<div class="page-header">
+  <h3><%= 'Cadastro do Professor' %></h3>
+</div>
+<strong id="notice"><%= notice %></strong>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name('Matricula') %>:</strong></dt>
+  <dd><%= @professor.id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @professor.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name('Data de Nascimento') %>:</strong></dt>
+  <dd><%= @professor.dtnascimento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
+  <dd><%= @professor.cpf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rg) %>:</strong></dt>
+  <dd><%= @professor.rg %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:endereco) %>:</strong></dt>
+  <dd><%= @professor.endereco %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:complemento) %>:</strong></dt>
+  <dd><%= @professor.complemento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cidade) %>:</strong></dt>
+  <dd><%= @professor.cidade %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado) %>:</strong></dt>
+  <dd><%= @professor.estado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefone) %>:</strong></dt>
+  <dd><%= @professor.telefone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @professor.email %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("Voltar")),
+              professors_path, :class => 'btn'  %>
+ 
+</div>

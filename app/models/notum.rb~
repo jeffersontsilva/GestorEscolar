@@ -1,0 +1,10 @@
+class Notum < ActiveRecord::Base
+
+  attr_accessible :aluno_id, :descricao, :valor
+  belongs_to :aluno
+
+  validates_uniqueness_of :aluno, :scope => :descricao, :message => "ja cadastrada!"
+
+  accepts_nested_attributes_for :aluno
+  
+end

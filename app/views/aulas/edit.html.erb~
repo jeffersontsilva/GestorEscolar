@@ -1,0 +1,5 @@
+<%- model_class = Aula -%>
+<div class="page-header">
+  <h1><%= 'Editar Aula' %></h1>
+</div>
+<%= render :partial => 'form' %>

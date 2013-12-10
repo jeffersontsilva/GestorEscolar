@@ -1,0 +1,16 @@
+<%- model_class = Aula -%>
+<div class="page-header">
+  <h1><%= 'Aula' %></h1>
+</div>
+<strong id="notice"><%= notice %></strong>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name('Professor') %>:</strong></dt>
+  <dd><%= @aula.professor.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name('Turma') %>:</strong></dt>
+  <dd><%= @aula.turma.nome %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("Voltar")),
+              aulas_path, :class => 'btn'  %>
+</div>
